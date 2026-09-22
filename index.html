@@ -1,0 +1,502 @@
+<!--
+DESIGN SPECIFICATION:
+- Color Palette:
+    --bg-warm: #FAF9F6 (Soft Ivory/Off-White)
+    --accent-sage: #5F7A61 (Confident, clinical yet warm Sage Green)
+    --text-main: #1A1C1B (Dark near-black for high readability)
+    --text-muted: #5C6360 (Muted slate-green for subtext)
+    --white: #FFFFFF (Pure white for contrast)
+- Typography:
+    - Headlines: 'Playfair Display', serif
+    - Body: 'Inter', sans-serif
+- Updates:
+    - Max-width expanded to 1100px for better content breathability.
+    - Base font size increased to 18px for improved accessibility.
+    - Service layout corrected to ensure absolute separation between name and price.
+    - Vertical padding increased between sections for a more premium, spacious feel.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Smile Dental Clinic | Karachi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-warm: #FAF9F6;
+            --accent-sage: #5F7A61;
+            --accent-light: #E9EDE9;
+            --text-main: #1A1C1B;
+            --text-muted: #5C6360;
+            --white: #FFFFFF;
+            --border-color: #D1D5D1;
+            --container-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 18px; /* Increased base font size */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            background-color: var(--bg-warm);
+            border-bottom: 1px solid var(--border-color);
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: lowercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-sage);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 8rem 5%; /* Increased vertical padding */
+            gap: 4rem;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .cta-button {
+            background-color: var(--accent-sage);
+            color: var(--white);
+            padding: 1.2rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 2px;
+            display: inline-block;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-button:hover {
+            background-color: #4a614b;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual svg {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            stroke: var(--accent-sage);
+            fill: none;
+            stroke-width: 1px;
+            opacity: 0.8;
+        }
+
+        /* General Section Layout */
+        .section {
+            padding: 10rem 5%; /* Significant increase in vertical padding */
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+            max-width: 650px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Why Choose Us */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 5rem;
+        }
+
+        .about-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .about-item h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background: var(--accent-sage);
+        }
+
+        .about-item p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Services */
+        .services-section {
+            background-color: var(--white);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10rem 5%;
+        }
+
+        .services-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 4rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .service-row {
+            display: flex;
+            justify-content: space-between; /* Forces name to left, price to right */
+            align-items: baseline;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .service-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding-right: 2rem;
+        }
+
+        .service-price {
+            font-weight: 600;
+            color: var(--accent-sage);
+            white-space: nowrap; /* Prevents price from wrapping */
+        }
+
+        /* Info Grid */
+        .info-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+        }
+
+        .info-block h3 {
+            font-size: 1.7rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--accent-light);
+            font-size: 1.1rem;
+        }
+
+        .info-detail span:first-child {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            padding: 6rem 5%;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            background-color: var(--bg-warm);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 6rem 5%;
+            }
+            .hero-content h1 {
+                font-size: 2.75rem;
+            }
+            .hero-content p {
+                margin: 0 auto 2.5rem;
+            }
+            .hero-visual {
+                order: -1;
+            }
+            .info-layout {
+                grid-template-columns: 1fr;
+                gap: 5rem;
+            }
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .nav-links {
+                gap: 1.5rem;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .service-row {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: left;
+            }
+            .service-price {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Bright Smile Dental</div>
+        <div class="nav-links">
+            <a href="#about">about</a>
+            <a href="#services">services</a>
+            <a href="#contact">contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Precise Care for a Timeless Smile</h1>
+            <p>Combining clinical excellence with a calming environment to provide the highest standard of dental health in Karachi.</p>
+            <a href="#contact" class="cta-button">REQUEST APPOINTMENT</a>
+        </div>
+        <div class="hero-visual">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50,80 C50,40 150,40 150,80 C150,120 130,140 100,140 C70,140 50,120 50,80" stroke-width="1.5" />
+                <path d="M70,80 C70,100 130,100 130,80" stroke-width="1" opacity="0.5" />
+                <circle cx="100" cy="60" r="2" fill="currentColor" />
+                <path d="M40,100 Q100,160 160,100" stroke-width="1" opacity="0.3" />
+            </svg>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="section-header">
+            <h2>A Modern Approach to Oral Health</h2>
+            <p>We prioritize longevity and patient comfort over quick fixes, ensuring every treatment is precise and personalized.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-item">
+                <h3>Expertise</h3>
+                <p>Our clinical team consists of board-certified specialists dedicated to lifelong learning and advanced practice.</p>
+            </div>
+            <div class="about-item">
+                <h3>Hygiene</h3>
+                <p>Medical-grade sterilization protocols that exceed international safety standards for your total peace of mind.</p>
+            </div>
+            <div class="about-item">
+                <h3>Philosophy</h3>
+                <p>A patient-first ethos where transparency, gentle care, and clear communication are the foundations of every visit.</p>
+            </div>
+            <div class="about-item">
+                <h3>Technology</h3>
+                <p>Integrating digital diagnostic tools to ensure accuracy and minimize invasive procedures.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="services-container">
+            <div class="section-header">
+                <h2>Clinical Services</h2>
+                <p>Comprehensive care delivered with precision. Our pricing is transparent and all-inclusive.</p>
+            </div>
+            <div class="services-list">
+                <!-- Column 1 -->
+                <div class="service-col">
+                    <div class="service-row">
+                        <span class="service-name">General Checkup</span>
+                        <span class="service-price">Rs. 1,500</span>
+                    </div>
+                    <div class="service-row">
+                        <span class="service-name">Teeth Cleaning</span>
+                        <span class="service-price">Rs. 3,000</span>
+                    </div>
+                    <div class="service-row">
+                        <span class="service-name">Dental Filling</span>
+                        <span class="service-price">Rs. 2,500</span>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div class="service-col">
+                    <div class="service-row">
+                        <span class="service-name">Root Canal</span>
+                        <span class="service-price">Rs. 8,000</span>
+                    </div>
+                    <div class="service-row">
+                        <span class="service-name">Braces Consultation</span>
+                        <span class="service-price">Rs. 2,000</span>
+                    </div>
+                    <div class="service-row">
+                        <span class="service-name">Teeth Whitening</span>
+                        <span class="service-price">Rs. 12,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="section-header">
+            <h2>Practice Details</h2>
+            <p>Join us at our Karachi clinic for a consultation.</p>
+        </div>
+        <div class="info-layout">
+            <div class="info-block">
+                <h3>Operating Hours</h3>
+                <div class="info-detail">
+                    <span>Monday — Saturday</span>
+                    <span>10:00 AM — 8:00 PM</span>
+                </div>
+                <div class="info-detail">
+                    <span>Sunday</span>
+                    <span>Closed</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <h3>Location & Contact</h3>
+                <div class="info-detail">
+                    <span>Address</span>
+                    <span>H-9, Stadium Road, Karachi</span>
+                </div>
+                <div class="info-detail">
+                    <span>Telephone</span>
+                    <span>03412359505</span>
+                </div>
+                <div class="info-detail">
+                    <span>Email</span>
+                    <span>info@brightsmile.pk</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="footer-logo">Bright Smile Dental Clinic</span>
+        <div class="footer-nav">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#about">About</a>
+        </div>
+        <p class="copyright">&copy; 2026 Bright Smile Dental Clinic. Karachi, Pakistan.</p>
+    </footer>
+ <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  createChat({
+    webhookUrl: 'https://hamzawf.app.n8n.cloud/webhook/2bd1dd39-edf8-4ca5-96f0-e7177ef730b0/chat',
+    initialMessages: [
+      'Hi there! 👋',
+      'Welcome to Bright Smile Dental Clinic. How can I help you today?'
+    ]
+  });
+</script>
+</body>
+
+</body>
+</html>
